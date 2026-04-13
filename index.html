@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <meta name="description" content="Vivek Patidar — Frontend Developer & MCA Data Science Student. Building beautiful, fast web experiences."/>
+  <meta name="theme-color" content="#0a0510"/>
+  <meta property="og:title" content="Vivek Patidar — Frontend Developer"/>
+  <meta property="og:description" content="Frontend Developer & MCA student building beautiful web experiences."/>
+  <title>Vivek Patidar — Frontend Developer</title>
+
+  <!-- Fonts: only 2 weights each, swap prevents render block -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&family=Outfit:wght@400;600&display=swap&display=swap" rel="stylesheet"/>
+
+  <!-- Icons: non-blocking load -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'"/>
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/></noscript>
+
+  <!-- EmailJS (deferred — never blocks page) -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
+
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<!-- Scroll progress bar -->
+<div id="sp"></div>
+
+<!-- Back to top -->
+<button id="btt" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<!-- Project detail modal -->
+<div class="modal-ov" id="modal" role="dialog" aria-modal="true">
+  <div class="modal-bx">
+    <div class="modal-img" id="mImg"></div>
+    <div class="modal-bd">
+      <div class="modal-top">
+        <div><div class="modal-cat" id="mCat"></div><h2 class="modal-title" id="mTitle"></h2><div class="modal-yr" id="mYr"></div></div>
+        <button class="modal-x" id="modalX" aria-label="Close"><i class="fas fa-times"></i></button>
+      </div>
+      <p class="modal-desc" id="mDesc"></p>
+      <div class="modal-lbl">Tech Stack</div>
+      <div class="modal-tech" id="mTech"></div>
+      <div class="modal-acts" id="mActs"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ NAVIGATION ══════ -->
+<nav id="nav">
+  <a href="#hero" class="nav-logo">VP<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about"      class="nl">About</a></li>
+    <li><a href="#skills"     class="nl">Skills</a></li>
+    <li><a href="#projects"   class="nl">Projects</a></li>
+    <li><a href="#experience" class="nl">Experience</a></li>
+    <li><a href="#education"  class="nl">Education</a></li>
+    <li><a href="#contact"    class="nl">Contact</a></li>
+  </ul>
+  <div class="nav-r">
+    <!-- ✦ EDIT: point to your resume PDF -->
+    <a href="assets/resume.pdf" download="Vivek_Patidar_Resume.pdf" class="btn-res" id="navRes">
+      <i class="fas fa-file-arrow-down"></i><span>Resume</span>
+    </a>
+    <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
+      <i id="themeIco" class="fas fa-moon"></i>
+    </button>
+    <button class="ham" id="ham" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile navigation -->
+<div class="mob-nav" id="mobNav" role="dialog" aria-label="Menu">
+  <div class="mob-inner">
+    <a href="#about"      class="ml">About</a>
+    <a href="#skills"     class="ml">Skills</a>
+    <a href="#projects"   class="ml">Projects</a>
+    <a href="#experience" class="ml">Experience</a>
+    <a href="#education"  class="ml">Education</a>
+    <a href="#contact"    class="ml">Contact</a>
+    <a href="assets/resume.pdf" download class="ml ml-res">
+      <i class="fas fa-file-arrow-down"></i> Download Resume
+    </a>
+  </div>
+</div>
+<div class="mob-bg" id="mobBg"></div>
+
+<!-- ══════ HERO ══════ -->
+<section id="hero">
+  <div class="hero-glow g1" aria-hidden="true"></div>
+  <div class="hero-glow g2" aria-hidden="true"></div>
+  <div class="hero-c">
+    <p class="h-tag">Frontend Developer &amp; MCA — Data Science</p>
+    <h1 class="h-name">Vivek<br/><em>Patidar</em></h1>
+    <p class="h-sub">
+      I craft <span id="tw"></span><br/>
+      — clean code, beautiful interfaces, meaningful experiences.
+    </p>
+    <div class="h-btns">
+      <a href="#projects" class="btn-p"><i class="fas fa-eye"></i> View Projects</a>
+      <a href="#contact"  class="btn-s"><i class="fas fa-paper-plane"></i> Hire Me</a>
+      <a href="assets/resume.pdf" download="Vivek_Patidar_Resume.pdf" class="btn-r">
+        <i class="fas fa-file-arrow-down"></i> Download CV
+      </a>
+    </div>
+    <!-- ✦ EDIT: social links -->
+    <div class="h-soc">
+      <a href="https://github.com/Vivekpatidar05/" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/vivekpatidar05/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://www.instagram.com/vivek.ptdrr/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="mailto:patidarvivek333@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ ABOUT ══════ -->
+<section id="about" class="sec alt">
+  <div class="wrap">
+    <p class="sec-label reveal">01 — About</p>
+    <h2 class="sec-title reveal">The person <em>behind the code</em></h2>
+    <div class="about-grid">
+      <!-- Avatar -->
+      <div class="av-wrap reveal">
+        <div class="av-card">
+          
+            <!-- ✦ ADD YOUR PHOTO:
+            1. Save your photo as  assets/photo.jpg
+            2. Uncomment this line and delete the div.av-ph below: -->
+            <img src="assets/photo.jpg" alt="Vivek Patidar" class="av-img"/>
+          
+          <!-- <div class="av-ph"><span>VP</span><small>Add photo → assets/photo.jpg</small></div> -->
+        </div>
+        <div class="av-badge"><span class="pulse"></span> Open to Opportunities</div>
+        <a href="assets/resume.pdf" download="Vivek_Patidar_Resume.pdf" class="btn-sm">
+          <i class="fas fa-file-arrow-down"></i> Download Resume
+        </a>
+      </div>
+      <!-- Bio + stats + info -->
+      <div class="about-r">
+        <!-- ✦ EDIT: your bio -->
+        <div class="bio reveal">
+          <p>Hey, I'm <strong>Vivek</strong> — a frontend developer from <strong>Ujjain, Madhya Pradesh</strong>, now based in <strong>Haridwar</strong> pursuing my MCA in Data Science at Dev Sanskriti Vishwavidyalaya.</p>
+          <p>I love building things on the web that feel <em>right</em> — every pixel, interaction, and line of code matters. From responsive layouts to data dashboards, I bring the same care and attention throughout.</p>
+          <p>Beyond screens I'm drawn to yoga, Indian philosophy, and the belief that good design — like good architecture — should be both <strong>functional and timeless</strong>.</p>
+        </div>
+        <div class="stats reveal">
+          <div class="stat"><div class="stat-n" data-count="3">0</div><div class="stat-l">Years Coding</div></div>
+          <div class="stat"><div class="stat-n" data-count="8">0</div><div class="stat-l">Projects Built</div></div>
+          <div class="stat"><div class="stat-n">∞</div><div class="stat-l">Curiosity</div></div>
+        </div>
+        <!-- ✦ EDIT: personal info table -->
+        <table class="info-tbl reveal">
+          <tr><td>Name</td><td>Vivek Patidar</td></tr>
+          <tr><td>Location</td><td>Haridwar, Uttarakhand</td></tr>
+          <tr><td>From</td><td>Ujjain, Madhya Pradesh</td></tr>
+          <tr><td>Email</td><td><a href="mailto:patidarvivek333@gmail.com">patidarvivek333@gmail.com</a></td></tr>
+          <tr><td>Phone</td><td>+91 75665 29195</td></tr>
+          <tr><td>Degree</td><td>MCA — Data Science (1st Year)</td></tr>
+          <tr><td>University</td><td>Dev Sanskriti Vishwavidyalaya</td></tr>
+          <tr><td>Languages</td><td>Hindi (Native) · English (Proficient)</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ SKILLS ══════ -->
+<section id="skills" class="sec">
+  <div class="wrap">
+    <p class="sec-label reveal">02 — Skills</p>
+    <h2 class="sec-title reveal">My technical <em>toolkit</em></h2>
+    <!-- ✦ EDIT: skill cards -->
+    <div class="sk-grid">
+      <div class="sk-card reveal">
+        <div class="sk-ico">🎨</div>
+        <div class="sk-nm">Languages & Markup</div>
+        <div class="sk-tags"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Python</span></div>
+      </div>
+      <div class="sk-card reveal">
+        <div class="sk-ico">⚛️</div>
+        <div class="sk-nm">Frameworks</div>
+        <div class="sk-tags"><span>React.js</span><span>Flask</span><span>Matplotlib</span><span>Plotly</span></div>
+      </div>
+      <div class="sk-card reveal">
+        <div class="sk-ico">🗄️</div>
+        <div class="sk-nm">Database & Backend</div>
+        <div class="sk-tags"><span>MongoDB</span><span>REST APIs</span><span>CRUD</span></div>
+      </div>
+      <div class="sk-card reveal">
+        <div class="sk-ico">📐</div>
+        <div class="sk-nm">Design & UX</div>
+        <div class="sk-tags"><span>Responsive Design</span><span>Component UI</span><span>UX Principles</span></div>
+      </div>
+      <div class="sk-card reveal">
+        <div class="sk-ico">🛠️</div>
+        <div class="sk-nm">Tools</div>
+        <div class="sk-tags"><span>VS Code</span><span>Git</span><span>GitHub</span><span>pptxgenjs</span></div>
+      </div>
+      <div class="sk-card reveal">
+        <div class="sk-ico">📊</div>
+        <div class="sk-nm">Data Science</div>
+        <div class="sk-tags"><span>Pandas</span><span>Seaborn</span><span>EDA</span><span>Kaggle</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ PROJECTS ══════ -->
+<section id="projects" class="sec alt">
+  <div class="wrap">
+    <p class="sec-label reveal">03 — Projects</p>
+    <h2 class="sec-title reveal">Work I'm <em>proud of</em></h2>
+    <div class="filt reveal" id="filt">
+      <button class="fb act" data-f="all">All</button>
+      <button class="fb" data-f="fullstack">Full Stack</button>
+      <button class="fb" data-f="frontend">Frontend</button>
+      <button class="fb" data-f="datascience">Data Science</button>
+      <button class="fb" data-f="design">Design</button>
+    </div>
+    <div class="proj-grid" id="pg"></div>
+  </div>
+</section>
+
+<!-- ══════ EXPERIENCE ══════ -->
+<section id="experience" class="sec">
+  <div class="wrap">
+    <p class="sec-label reveal">04 — Experience</p>
+    <h2 class="sec-title reveal">Work <em>experience</em></h2>
+    <div class="exp-list" id="expList">
+      <!--
+        ✦ HOW TO ADD EXPERIENCE:
+        Copy one <div class="exp-card reveal"> block below and fill in your details.
+        If you have no experience yet, the "coming soon" placeholder shows automatically.
+
+        Example block:
+        <div class="exp-card reveal">
+          <div class="exp-header">
+            <div>
+              <div class="exp-role">Frontend Developer Intern</div>
+              <div class="exp-company"><i class="fas fa-building"></i> Company Name</div>
+            </div>
+            <div class="exp-meta">
+              <div class="exp-date">Jun 2025 – Aug 2025</div>
+              <div class="exp-type">Internship</div>
+            </div>
+          </div>
+          <p class="exp-desc">Describe what you worked on, what you built, and what you learned.</p>
+          <div class="exp-tags"><span>React</span><span>Node.js</span></div>
+        </div>
+      -->
+    </div>
+    <!-- Shown when expList is empty — JS hides this when entries exist -->
+    <div class="exp-empty" id="expEmpty">
+      <div class="exp-empty-ico">💼</div>
+      <div class="exp-empty-title">Experience coming soon</div>
+      <!-- <p class="exp-empty-sub">Add your experience by editing the HTML comment in the Experience section of <code>index.html</code></p> -->
+    </div>
+  </div>
+</section>
+
+<!-- ══════ EDUCATION ══════ -->
+<section id="education" class="sec alt">
+  <div class="wrap">
+    <p class="sec-label reveal">05 — Education</p>
+    <h2 class="sec-title reveal">My academic <em>journey</em></h2>
+    <!-- ✦ EDIT: education timeline -->
+    <div class="edu-list">
+      <div class="edu-item reveal">
+        <div class="edu-dot"></div>
+        <div class="edu-yr">2025 – Present</div>
+        <div class="edu-body">
+          <div class="edu-deg">Master of Computer Applications (MCA-DS)</div>
+          <div class="edu-sch"><i class="fas fa-university"></i> Dev Sanskriti Vishwavidyalaya, Haridwar</div>
+          <p>Specialising in Data Science. Coursework covers AI, machine learning, data visualization, full-stack development, and software ethics. Mentored by faculty with PhD-level expertise in AI.</p>
+        </div>
+      </div>
+      <div class="edu-item reveal">
+        <div class="edu-dot"></div>
+        <div class="edu-yr">2022 – 2025</div>
+        <div class="edu-body">
+          <div class="edu-deg">Bachelor of Computer Applications (BCA)</div>
+          <div class="edu-sch"><i class="fas fa-university"></i> Makhanlal Chaturvedi National University, Bhopal</div>
+          <p>Studied web development, databases, and programming. Developed practical skills in HTML, CSS, JavaScript, and React.js.</p>
+        </div>
+      </div>
+      <div class="edu-item reveal">
+        <div class="edu-dot"></div>
+        <div class="edu-yr">2022</div>
+        <div class="edu-body">
+          <div class="edu-deg">Higher Secondary Certificate (Class XII) — Commerce</div>
+          <div class="edu-sch"><i class="fas fa-school"></i> Panchsheel Academy, Garoth, MP</div>
+          <p>Commerce stream with strong academics and early interest in technology.</p>
+        </div>
+      </div>
+      <div class="edu-item reveal">
+        <div class="edu-dot"></div>
+        <div class="edu-yr">2020</div>
+        <div class="edu-body">
+          <div class="edu-deg">Secondary School Certificate (Class X)</div>
+          <div class="edu-sch"><i class="fas fa-school"></i> Panchsheel Academy, Garoth, MP</div>
+          <p>First exposure to computers sparked a lifelong passion for technology and design.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ CONTACT ══════ -->
+<section id="contact" class="sec">
+  <div class="wrap">
+    <p class="sec-label reveal">06 — Contact</p>
+    <h2 class="sec-title reveal">Let's create something <em>beautiful</em></h2>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <blockquote>"Every great product starts with a great conversation — let's have one."</blockquote>
+        <!-- ✦ EDIT: contact details -->
+        <div class="c-items">
+          <div class="c-item"><div class="c-ico"><i class="fas fa-envelope"></i></div><div><p class="c-lbl">Email</p><a href="mailto:patidarvivek333@gmail.com" class="c-val">patidarvivek333@gmail.com</a></div></div>
+          <div class="c-item"><div class="c-ico"><i class="fas fa-phone"></i></div><div><p class="c-lbl">Phone</p><p class="c-val">+91 75665 29195</p></div></div>
+          <div class="c-item"><div class="c-ico"><i class="fas fa-map-marker-alt"></i></div><div><p class="c-lbl">Location</p><p class="c-val">Haridwar, Uttarakhand, India</p></div></div>
+          <div class="c-item"><div class="c-ico"><i class="fas fa-clock"></i></div><div><p class="c-lbl">Response</p><p class="c-val">Within 24 hours</p></div></div>
+        </div>
+        <a href="assets/resume.pdf" download="Vivek_Patidar_Resume.pdf" class="btn-sm">
+          <i class="fas fa-file-arrow-down"></i> Download My Resume
+        </a>
+      </div>
+      <div class="contact-form reveal">
+        <!--
+          ✦ EmailJS (free — https://www.emailjs.com):
+          1. Create account → connect Gmail → copy SERVICE_ID
+          2. New template, variables: {{from_name}} {{from_email}} {{phone}} {{subject}} {{message}}
+             Set "To Email" = patidarvivek333@gmail.com → copy TEMPLATE_ID
+          3. Account → API Keys → copy PUBLIC_KEY
+          4. Paste all 3 into js/script.js CONFIG section
+        -->
+        <form id="cForm" novalidate>
+          <div class="form-row">
+            <div class="fg"><label for="fn">Name</label><input id="fn" name="from_name" placeholder="Rahul Sharma" required autocomplete="name"/></div>
+            <div class="fg"><label for="fe">Email</label><input id="fe" name="from_email" type="email" placeholder="rahul@example.com" required autocomplete="email"/></div>
+          </div>
+          <div class="form-row">
+            <div class="fg"><label for="fp">Phone (optional)</label><input id="fp" name="phone" type="tel" placeholder="+91 9876543210" autocomplete="tel"/></div>
+            <div class="fg"><label for="fs">Subject</label><input id="fs" name="subject" placeholder="Project Collaboration" required/></div>
+          </div>
+          <div class="fg"><label for="fm">Message</label><textarea id="fm" name="message" rows="5" placeholder="Tell me about your project or idea..." required></textarea></div>
+          <button type="submit" id="cBtn">
+            <i class="fas fa-paper-plane" id="cIco"></i>
+            <span id="cTxt">Send Message</span>
+          </button>
+          <div class="f-msg" id="fMsg" role="alert"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ FOOTER ══════ -->
+<footer>
+  <div class="wrap foot-inner">
+    <!-- Secret: click "Vivek Patidar." 5× fast OR long-press on mobile to access admin -->
+    <div class="foot-logo" id="footLogo">Vivek Patidar<span>.</span></div>
+    <p class="foot-copy">© 2025 — Made with care from Haridwar 🇮🇳</p>
+    <div class="foot-r">
+      <a href="assets/resume.pdf" download class="foot-res"><i class="fas fa-file-arrow-down"></i> Resume</a>
+      <div class="foot-soc">
+        <!-- ✦ EDIT: social links -->
+        <a href="https://github.com/Vivekpatidar05/" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/vivekpatidar05/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="mailto:patidarvivek333@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
