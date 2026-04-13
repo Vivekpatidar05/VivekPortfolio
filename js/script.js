@@ -10,9 +10,9 @@
 ══════════════════════════════════════════════════ */
 
 // EmailJS credentials — get free at https://www.emailjs.com
-const EJS_KEY = "YOUR_PUBLIC_KEY";   // Account → API Keys
-const EJS_SVC = "YOUR_SERVICE_ID";   // Email Services tab
-const EJS_TPL = "YOUR_TEMPLATE_ID";  // Email Templates tab
+const EJS_KEY = "1xXjjLFMhENxJsCpF";   // Account → API Keys
+const EJS_SVC = "service_juw4n2j";   // Email Services tab
+const EJS_TPL = "template_1zbhyjj";  // Email Templates tab
 
 // Typewriter phrases — add or remove lines freely
 const TW = [
