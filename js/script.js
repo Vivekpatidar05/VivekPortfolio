@@ -38,9 +38,9 @@ const PROJECTS = [
     short:    "Full-stack ERP with 8 modules — students, attendance, grades, fees, library, and admin.",
     full:     "A comprehensive Enterprise Resource Planning system for college administration covering 8 modules: Student Management, Attendance Tracking, Grade Management, Fee Collection, Library System, Faculty Management, Timetable, and Admin Dashboard — all with full CRUD, validation, and a responsive dark-themed UI.",
     tech:     ["Flask", "MongoDB", "JavaScript", "HTML5", "CSS3", "REST API", "Jinja2"],
-    live:     "",           // ← e.g. "https://my-erp.netlify.app"
+    live:     "https://dsvv-erp.up.railway.app/",           // ← e.g. "https://my-erp.netlify.app"
     github:   "",           // ← e.g. "https://github.com/vivek/erp"
-    year:     "2025",
+    year:     "2026",
   },
   {
     id: "p2",
